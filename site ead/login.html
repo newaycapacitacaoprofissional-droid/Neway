@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <title>Área do Aluno - Login</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+
+<body class="bg-gray-100 flex items-center justify-center h-screen">
+
+  <div class="bg-white p-8 rounded-2xl shadow-lg w-full max-w-md">
+    
+    <h2 class="text-2xl font-bold text-center text-gray-800 mb-6">
+      Área do Aluno
+    </h2>
+
+    <form onsubmit="login(event)">
+      
+      <div class="mb-4">
+        <label class="block text-sm font-medium text-gray-700">Usuário</label>
+        <input type="text" id="usuario" class="w-full mt-1 p-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-red-400" required>
+      </div>
+
+      <div class="mb-6">
+        <label class="block text-sm font-medium text-gray-700">Senha</label>
+        <input type="password" id="senha" class="w-full mt-1 p-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-red-400" required>
+      </div>
+
+      <button type="submit" class="w-full bg-red-500 text-white py-3 rounded-lg hover:bg-red-600 transition">
+        Entrar
+      </button>
+
+    </form>
+
+    <p id="erro" class="text-red-500 text-sm text-center mt-4 hidden">
+      Usuário ou senha incorretos
+    </p>
+
+  </div>
+
+  <script>
+    function login(event) {
+      event.preventDefault();
+
+      const usuario = document.getElementById('usuario').value;
+      const senha = document.getElementById('senha').value;
+
+      // EXEMPLO SIMPLES (você pode trocar depois por banco de dados)
+      if (usuario === "aluno" && senha === "1234") {
+        window.location.href = "dashboard.html";
+      } else {
+        document.getElementById('erro').classList.remove('hidden');
+      }
+    }
+  </script>
+
+</body>
+</html>
